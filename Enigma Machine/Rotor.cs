@@ -76,7 +76,11 @@ namespace Enigma_Machine
 
         public void SetRotorPosition(int position)
         {
-            rotorPosition = position;
+            rotorPosition -= position;
+            if(rotorPosition < 0)
+            {
+                rotorPosition += abc.Length;
+            }
         }
 
         public void SwitchRotorPosition()

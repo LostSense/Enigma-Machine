@@ -8,7 +8,7 @@ namespace Enigma_Machine
     {
         private Rotor[] rotors;
         private Rotor reflector;
-        private Rotor clems;
+        private ClemsArray clems;
         public Enigma(int rotorAmount)
         {
             rotors = new Rotor[rotorAmount];
@@ -31,9 +31,9 @@ namespace Enigma_Machine
             reflector = new Rotor(reflectorType, 'A');
         }
 
-        public void IniciateClems(string clemsType)
+        public void IniciateClems(params string[] clemsType)
         {
-            clems = new Rotor(clemsType, 'A');
+            clems = new ClemsArray("ABCDEFGHIJKLMNOPQRSTUVWXYZ",clemsType);
         }
 
         public void SetRotorPosition(int rotorNum, int position)
@@ -94,12 +94,12 @@ namespace Enigma_Machine
 
         private int RunForwardThroughtClems(int code)
         {
-            return clems.PassSignalFromEnter(code);
+            return clems._clems.PassSignalFromEnter(code);
         }
 
         private int RunBackwardThroughtClems(int code)
         {
-            return clems.PassSignalFromBackward(code);
+            return clems._clems.PassSignalFromBackward(code);
         }
 
     }

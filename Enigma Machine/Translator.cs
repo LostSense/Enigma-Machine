@@ -71,17 +71,15 @@ namespace Enigma_Machine
         private void IniciateEnigma()//TEST METHOD
         {
             machine = new Enigma(3);
-            machine.IniciateRotor(0, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'E');
-            machine.IniciateRotor(1, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'E');
-            machine.IniciateRotor(2, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'E');
+            machine.IniciateRotor(0, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+            machine.IniciateRotor(1, "BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+            machine.IniciateRotor(2, "AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
             machine.InsertRotorsIntoMachine();
             machine.IniciateReflector("YRUHQSLDPXNGOKMIEBFZCWVJAT");
-            // | AE | BF | CM | DQ | HU | JN | LX | PR | SZ | VW |
-            machine.IniciateClems("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-
-            machine.SetRotorPosition(0, 0);
-            machine.SetRotorPosition(1, 0);
-            machine.SetRotorPosition(2, 0);
+            machine.IniciateClems("AI", "BS", "OG", "WT", "ZX");
+            machine.SetRotorPosition(0, 1);
+            machine.SetRotorPosition(1, 1);
+            machine.SetRotorPosition(2, 1);
         }
 
         
