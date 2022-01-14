@@ -12,6 +12,7 @@ namespace Enigma_Machine
         private int[] inputSignalConnections;
         private int[] outputSignalConnections;
         private int rotorPosition;
+        private int notchPosition;
         private string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private char _rotorNotch;
         private bool rotorIsMain;
@@ -25,6 +26,7 @@ namespace Enigma_Machine
             IniciateInputSignalArray();
             IniciateOutputSignalArray();
             rotorPosition = 0;
+            notchPosition = 0;
             _rotorNotch = rotorNotch;
             rotorIsMain = false;
         }
@@ -81,11 +83,16 @@ namespace Enigma_Machine
             {
                 rotorPosition += abc.Length;
             }
+            notchPosition = position;
+            if(notchPosition >= abc.Length)
+            {
+                notchPosition -= abc.Length;
+            }
         }
 
         public void SwitchRotorPosition()
         {
-            if(inputChars[rotorPosition] == _rotorNotch && rotateNextRotorFunc != null)
+            if(inputChars[notchPosition] == _rotorNotch && rotateNextRotorFunc != null)
             {
                 rotateNextRotorFunc();
             }
@@ -93,6 +100,11 @@ namespace Enigma_Machine
             if (rotorPosition < 0)
             {
                 rotorPosition = abc.Length - 1;
+            }
+            notchPosition++;
+            if(notchPosition >= abc.Length)
+            {
+                notchPosition = 0;
             }
         }
 

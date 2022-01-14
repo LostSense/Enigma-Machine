@@ -63,6 +63,7 @@ namespace Enigma_Machine
             a = RunForwardThroughtReflector(a);
             a = RunBackwardThroughtRotors(a);
             a = RunBackwardThroughtClems(a);
+            Console.WriteLine();
             return a;
         }
 

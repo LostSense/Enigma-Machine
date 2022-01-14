@@ -7,7 +7,7 @@ namespace Enigma_Machine
         static void Main(string[] args)
         {
             Translator trs = new Translator();
-            trs.Run("AAAAABBBBB");
+            trs.Run("EGTDPCTAGJXLZXFNHYXPUFPHYSBYBINMCBNVSLCZFSSAUQCELUPIMENJBLYSQVKFIUXFFQMLUUIATAUXVUMCBGGPFCHUYHPEFWDAJSRQIPICEDSNPXEBRDBG");
         }
     }
 }
